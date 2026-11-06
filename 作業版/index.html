@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>タイピングゲーム</title>
+  <link rel="stylesheet" href="kadai.css">
+  <script src="vendor/wanakana.min.js" defer></script>
+  <script src="kadai6.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <img src="susi.jpg" alt="" width="64" height="64">
+      <div><p class="eyebrow">毎日のタイピング練習</p><h1>タイピングゲーム</h1></div>
+    </header>
+    <div class="toolbar">
+      <label for="length">問題数 <select id="length"><option value="5">5問</option><option value="10" selected>10問</option><option value="20">20問</option></select></label>
+      <button id="startbtn" class="primary" type="button" aria-keyshortcuts="Enter">スタート <kbd>Enter</kbd></button>
+      <button id="resetbtn" type="button" disabled aria-keyshortcuts="Escape">リセット <kbd>Esc</kbd></button>
+      <button id="backgroundbtn" type="button">背景を変更</button>
+    </div>
+    <section class="practice" aria-label="タイピング練習">
+      <div class="practice-meta"><span id="status" role="status" aria-live="polite">開始待ち</span><span id="position">0 / 10問</span></div>
+      <progress id="progress" max="10" value="0" aria-label="完了した問題数"></progress>
+      <div class="question">
+        <p id="reading" class="reading"></p>
+        <h2 id="bunsyou">準備ができたらスタート</h2>
+        <p id="keyhint" class="keyhint"><kbd>Enter</kbd> キーで開始</p>
+        <p class="roman" aria-label="ローマ字"><span id="altype"></span><span id="roma"></span></p>
+      </div>
+      <p id="feedback" class="feedback" aria-live="polite">待機中</p>
+    </section>
+    <section class="results" aria-label="練習結果">
+      <div><span>正解入力</span><strong id="correct">0</strong><small>文字</small></div>
+      <div><span>ミス</span><strong id="incorrect">0</strong><small>回</small></div>
+      <div><span>正確率</span><strong id="accuracy">—</strong></div>
+      <div><span>経過時間</span><strong id="elapsed">0.0</strong><small>秒</small></div>
+      <div><span>入力速度</span><strong id="speed">—</strong><small>文字 / 分</small></div>
+    </section>
+    <p id="finishtext" class="finish" role="status"></p>
+  </main>
+</body>
+</html>
